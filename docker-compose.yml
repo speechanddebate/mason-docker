@@ -1,0 +1,26 @@
+#
+# Docker compose file that will run a local staging instance given the
+# appropriate array of apache configurations. I apologize that it's so many
+# configs required locally but that's life running a legacy service sometimes.
+#
+version: '3'
+services:
+  tabroom:
+    container_name: mason
+    image: mason:latest
+    restart: always
+    ports:
+      - 9000:80
+    volumes:
+      - /www/tabroom/web:/www/tabroom/web:rw
+      - /www/profiles:/www/profiles:rw
+      - /var/log/apache2:/var/log/apache2:rw
+      - /etc/tabroom/General.pm:/www/tabroom/web/lib/Tab/General.pm:ro
+      - /etc/tabroom/staging.tabroom.com.conf:/etc/apache2/sites-enabled/tabroom.com.conf:ro
+      - /etc/apache2/envvars:/etc/apache2/envvars:ro
+      - /etc/apache2/apache2.conf:/etc/apache2/apache2.conf:ro
+      - /etc/apache2/mods-enabled/perl.conf:/etc/apache2/mods-enabled/perl.conf:ro
+      - /etc/apache2/mods-enabled/mpm_prefork.conf:/etc/apache2/mods-enabled/mpm_prefork.conf:ro
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+      - "staging-api.tabroom.com:host-gateway"

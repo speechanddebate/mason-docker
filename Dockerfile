@@ -29,6 +29,7 @@ RUN DEBIAN_FRONTEND=noninteractive /usr/bin/apt -y -q install apache2 \
 	libdatetime-timezone-perl \
 	libdbd-mysql-perl \
 	libdbi-perl \
+	libdevel-nytprof-perl \
 	libhtml-fromtext-perl \
 	libhtml-mason-perl \
 	libio-socket-ssl-perl \
@@ -72,10 +73,6 @@ RUN cpanm HTTP::UA::Parser
 RUN cpanm JSON@4.02
 RUN cpanm JSON::WebToken
 RUN cpanm Crypt::JWT
-
-# This should only be activated on staging or development copies but is
-# installed anyway just in case.
-RUN cpanm Devel::NYTProf::Apache
 
 # The Class DBI shipped in Ubuntu has a bug and obviously that's never getting
 # fixed so I patch it here.
