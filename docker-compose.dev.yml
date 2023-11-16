@@ -1,0 +1,27 @@
+version: '3'
+services:
+  tabroom:
+    container_name: mason
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: mason:latest
+    restart: always
+    ports:
+      - 9000:80
+    env_file: .env
+    volumes:
+      - ${TABROOM_WEB:-/www/tabroom/web}:/www/tabroom/web:rw
+      - ${TABROOM_WEB_MASON:-/www/tabroom/web/mason}:/www/tabroom/web/mason:rw
+      - ${TABROOM_WEB_TMP:-/www/tabroom/web/tmp}:/www/tabroom/web/tmp:rw
+      - ${TABROOM_PROFILES:-/www/profiles}:/www/profiles:rw
+      - ${TABROOM_LOGS:-/var/log/apache2}:/var/log/apache2:rw
+      - ${TABROOM_GENERAL:-/etc/tabroom/General.pm}:/www/tabroom/web/lib/Tab/General.pm:ro
+      - ./conf/staging.tabroom.com.conf:/etc/apache2/sites-enabled/staging.tabroom.com.conf:ro
+      - ./conf/envvars:/etc/apache2/envvars:ro
+      - ./conf/apache2.conf:/etc/apache2/apache2.conf:ro
+      - ./conf/perl.conf:/etc/apache2/mods-enabled/perl.conf:ro
+      - ./conf/mpm_prefork.conf:/etc/apache2/mods-enabled/mpm_prefork.conf:ro
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+      - "staging-api.tabroom.com:host-gateway"
