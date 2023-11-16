@@ -25,9 +25,9 @@ jobs:
       run: echo COMMIT_VERSION=$(echo $GITHUB_SHA) >> $GITHUB_ENV
 
     - name: Publish Tabroom Mason image to Registry
-      uses: elgohr/Publish-Docker-Github-Action@v4 
+      uses: elgohr/Publish-Docker-Github-Action@v4
       with:
-        name: nsda/tabroom-mason
+        name: nsda/mason
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}
         registry: registry.speechanddebate.org
