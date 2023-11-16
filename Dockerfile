@@ -106,7 +106,7 @@ RUN /usr/sbin/a2enmod proxy
 RUN /usr/sbin/a2enmod proxy_http
 RUN /usr/sbin/a2enmod lbmethod_byrequests
 
-COPY ./conf/tabroom.com.conf /etc/apache2/sites-available/tabroom.com.conf
+COPY ./conf/staging.tabroom.com.conf /etc/apache2/sites-available/tabroom.com.conf
 RUN a2ensite tabroom.com
 
 COPY ./conf/mpm_prefork.conf /etc/apache2/mods-available
