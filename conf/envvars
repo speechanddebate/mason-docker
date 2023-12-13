@@ -13,8 +13,8 @@ fi
 # Since there is no sane way to get the parsed apache2 config in scripts, some
 # settings are defined via environment variables and then used in apache2ctl,
 # /etc/init.d/apache2, /etc/logrotate.d/apache2, etc.
-export APACHE_RUN_USER=root
-export APACHE_RUN_GROUP=root
+export APACHE_RUN_USER=www-data
+export APACHE_RUN_GROUP=www-data
 # temporary state file location. This might be changed to /run in Wheezy+1
 export APACHE_PID_FILE=/var/run/apache2$SUFFIX/apache2.pid
 export APACHE_RUN_DIR=/var/run/apache2$SUFFIX
@@ -35,7 +35,7 @@ export LANG
 
 ## If you need a higher file descriptor limit, uncomment and adjust the
 ## following line (default is 8192):
-#APACHE_ULIMIT_MAX_FILES='ulimit -n 65536'
+APACHE_ULIMIT_MAX_FILES='ulimit -n 65536'
 
 ## If you would like to pass arguments to the web server, add them below
 ## to the APACHE_ARGUMENTS environment.
