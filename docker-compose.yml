@@ -19,8 +19,8 @@ services:
       - /etc/tabroom/staging.tabroom.com.conf:/etc/apache2/sites-enabled/staging.tabroom.com.conf:ro
       - /etc/tabroom/envvars:/etc/apache2/envvars:ro
       - /etc/tabroom/apache2.conf:/etc/apache2/apache2.conf:ro
-      - /etc/tabroom/mods-enabled/perl.conf:/etc/apache2/mods-enabled/perl.conf:ro
-      - /etc/tabroom/mods-enabled/mpm_prefork.conf:/etc/apache2/mods-enabled/mpm_prefork.conf:ro
+      - /etc/tabroom/perl.conf:/etc/apache2/mods-enabled/perl.conf:ro
+      - /etc/tabroom/mpm_prefork.conf:/etc/apache2/mods-enabled/mpm_prefork.conf:ro
     extra_hosts:
       - "host.docker.internal:host-gateway"
       - "staging-api.tabroom.com:host-gateway"
