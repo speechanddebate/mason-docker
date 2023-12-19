@@ -104,6 +104,7 @@ RUN updmap-sys --force --enable Map=bera.map
 RUN /usr/sbin/a2enmod apreq2
 RUN /usr/sbin/a2enmod proxy
 RUN /usr/sbin/a2enmod proxy_http
+RUN /usr/sbin/a2enmod remoteip
 RUN /usr/sbin/a2enmod lbmethod_byrequests
 
 COPY ./conf/staging.tabroom.com.conf /etc/apache2/sites-available/tabroom.com.conf

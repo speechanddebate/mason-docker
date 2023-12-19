@@ -2,7 +2,7 @@
 # Docker compose file that will run a local staging instance given the
 # appropriate array of apache configurations. I apologize that it's so many
 # configs required locally but that's life running a legacy service sometimes.
-#
+
 version: '3'
 services:
   tabroom:
