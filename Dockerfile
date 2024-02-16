@@ -106,6 +106,7 @@ RUN /usr/sbin/a2enmod proxy
 RUN /usr/sbin/a2enmod proxy_http
 RUN /usr/sbin/a2enmod remoteip
 RUN /usr/sbin/a2enmod lbmethod_byrequests
+RUN /usr/sbin/a2enmod status
 
 COPY ./conf/staging.tabroom.com.conf /etc/apache2/sites-available/tabroom.com.conf
 RUN a2dissite 000-default
@@ -114,6 +115,7 @@ RUN a2ensite tabroom.com
 COPY ./conf/envvars /etc/apache2/envvars
 COPY ./conf/apache2.conf /etc/apache2/apache2.conf
 COPY ./conf/perl.conf /etc/apache2/mods-enabled/perl.conf
+COPY ./conf/status.conf /etc/apache2/mods-enabled/status.conf
 
 RUN /usr/sbin/a2dismod perl
 RUN /usr/sbin/a2enmod perl

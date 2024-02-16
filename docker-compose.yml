@@ -12,8 +12,9 @@ services:
     ports:
       - 9000:80
     volumes:
-      - /www/tabroom/web:/www/tabroom/web:rw
-      - /www/profiles:/www/profiles:rw
+      - /www/2/tabroom/web:/www/tabroom/web:rw
+      - /www/md-profiles:/www/profiles:rw
+      - /www/md-cache:/www/tabroom/web/mason:rw
       - /var/log/apache2:/var/log/apache2:rw
       - /etc/tabroom/General.pm:/www/tabroom/web/lib/Tab/General.pm:ro
     extra_hosts:
