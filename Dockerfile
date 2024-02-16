@@ -5,6 +5,7 @@ RUN DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC /usr/bin/apt -y -q install tzdata
 RUN DEBIAN_FRONTEND=noninteractive /usr/bin/apt -y -q install apache2 \
 	apache2-utils \
 	bzip2 \
+	curl \
 	rsync \
 	cpanminus \
 	libapreq2-3 \
