@@ -31,6 +31,7 @@ RUN DEBIAN_FRONTEND=noninteractive /usr/bin/apt -y -q install apache2 \
 	libdbd-mysql-perl \
 	libdbi-perl \
 	libdevel-nytprof-perl \
+	libemail-stuffer-perl \
 	libhtml-fromtext-perl \
 	libhtml-mason-perl \
 	libio-socket-ssl-perl \
