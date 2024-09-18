@@ -19,4 +19,4 @@ services:
       - /etc/tabroom/General.pm:/www/tabroom/web/lib/Tab/General.pm:ro
     extra_hosts:
       - "host.docker.internal:host-gateway"
-      - "staging-api.tabroom.com:host-gateway"
+      - "api.staging.tabroom.com:host-gateway"
