@@ -128,4 +128,5 @@ RUN /usr/sbin/a2dismod mpm_prefork
 RUN /usr/sbin/a2enmod mpm_prefork
 
 EXPOSE 80
+
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
