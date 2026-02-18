@@ -1,4 +1,3 @@
-version: '3'
 services:
   tabroom:
     container_name: mason-dev
@@ -16,9 +15,10 @@ services:
       - ${TABROOM_PROFILES:-/www/profiles}:/www/profiles:rw
       - ${TABROOM_LOGS:-/var/log/apache2}:/var/log/apache2:rw
       - ${TABROOM_GENERAL:-/etc/tabroom/General.dev.pm}:/www/tabroom/web/lib/Tab/General.pm:ro
+      - ${TABROOM_GENERAL:-/etc/tabroom/s3.config}:/www/tabroom/web/lib/s3.config:ro
       - ./conf/dev.tabroom.com.conf:/etc/apache2/sites-enabled/dev.tabroom.com.conf:ro
       - ./conf/envvars:/etc/apache2/envvars:ro
-      - ./conf/apache2.conf:/etc/apache2/apache2.conf:ro
+      - ./conf/apache2.dev.conf:/etc/apache2/apache2.conf:ro
       - ./conf/perl.conf:/etc/apache2/mods-enabled/perl.conf:ro
       - ./conf/mpm_prefork.conf:/etc/apache2/mods-enabled/mpm_prefork.conf:ro
     extra_hosts:
