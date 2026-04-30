@@ -22,7 +22,6 @@ RUN DEBIAN_FRONTEND=noninteractive /usr/bin/apt -y -q install apache2 \
 	libclass-dbi-mysql-perl \
 	libclass-dbi-perl \
 	libcompress-raw-zlib-perl \
-	libcrypt-passwdmd5-perl \
 	libcryptx-perl \
 	libdatetime-format-mysql-perl \
 	libdatetime-perl \

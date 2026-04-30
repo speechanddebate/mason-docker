@@ -23,5 +23,7 @@ services:
       - ./conf/mpm_prefork.conf:/etc/apache2/mods-enabled/mpm_prefork.conf:ro
     extra_hosts:
       - "host.docker.internal:host-gateway"
-      - "api.dev.tabroom.com:host-gateway"
-      - "legacyapi.dev.tabroom.com:host-gateway"
+      - "masoncards.dev.tabroom.com:host-gateway"
+      - "mason.dev.tabroom.com:host-gateway"
+      - "masoncards.debatefail.com:host-gateway"
+      - "mason.debatefail.com:host-gateway"
